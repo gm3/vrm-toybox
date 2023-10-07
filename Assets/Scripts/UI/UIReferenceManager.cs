@@ -77,6 +77,10 @@ public class UIReferenceManager : MonoBehaviour
     {
         if (isGamePaused)
         {
+            //cursor lock and state
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            ThirdPersonOrbitCamBasic.Instance.enabled = true;
             // If the game is paused, unpause it
             AudioListener.volume = 0;
             Time.timeScale = 1;
@@ -85,6 +89,10 @@ public class UIReferenceManager : MonoBehaviour
         }
         else
         {
+            //cursor lock and state
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            ThirdPersonOrbitCamBasic.Instance.enabled = false;
             // If the game is running, pause it
             AudioListener.volume = 1;
             Time.timeScale = 0;

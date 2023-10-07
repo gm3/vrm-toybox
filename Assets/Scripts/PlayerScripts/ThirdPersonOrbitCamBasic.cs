@@ -3,6 +3,7 @@
 // This class corresponds to the 3rd person camera features.
 public class ThirdPersonOrbitCamBasic : MonoBehaviour
 {
+    public static ThirdPersonOrbitCamBasic Instance { get; private set; }
     public Transform player;    
     public Camera playerCamera;                                       // Player's reference.
     public Vector3 pivotOffset = new Vector3(0.0f, 1.7f, 0.0f);         // Offset to repoint the camera.
@@ -32,6 +33,8 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
+        
         // Reference to the camera transform.
         cam = transform;
 
